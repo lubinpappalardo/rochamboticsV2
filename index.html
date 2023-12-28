@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rochambotics</title>
     <!--icon-->
-    <link rel="icon" type="image/x-icon" href="assets/assets/rochambotics-logo.png">
-    <link rel="apple-touch-icon" href="assets/assets/rochambotics-logo.png">
+    <link rel="icon" type="image/x-icon" href="assets/images/rochambotics-logo.png">
+    <link rel="apple-touch-icon" href="assets/images/rochambotics-logo.png">
     
     <link href="assets/styles.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -30,6 +30,20 @@
     </div>
 </nav>
 
+<nav id="mobile-navigation-panel">
+    <span id="mobile-navigation-btn-close" class="material-symbols-outlined">close</span>
+    <a class='nav-link active' href='#'>Home</a>
+    <a class='nav-link' href='#'>Vex Robotics</a>
+    <a class='nav-link' href='#'>Members</a>
+
+    <div class='social-links'>
+        <a><img class='nav-social-link link-gofundme' src='assets/svg/gofundme.svg' alt="our gofundme"></a>
+        <a><img class='nav-social-link link-mail' src='assets/svg/mail.svg' alt="our email"></a>
+        <a><img class='nav-social-link link-instagram' src='assets/svg/instagram.svg' alt="our instagram"></a>
+        <a><img class='nav-social-link link-youtube' src='assets/svg/youtube.svg' alt="our youtube"></a>
+    </div>
+</nav>
+
 <section id="home-section">
 
     <div class='blurry-blob-container'>
@@ -37,11 +51,16 @@
         <div class='blurry-blob'></div>
     </div>
     
-    <div id="angled-rectangle"></div>
+    <div id="angled-rectangle-container">
+        <div id="angled-rectangle"></div>
+    </div>
+
     <div class="line left-line"></div>
     <div class="line bottom-line"></div>
 
-    <img id="image-overlay" src='assets/images/members-overlay.png' alt="Overlay of the Rochambotics members">
+    <div id="image-overlay-container">
+        <img id="image-overlay" src='assets/images/members-overlay.png' alt="Overlay of the Rochambotics members">
+    </div>
 
     <div id='title-container'>
         <img id='title' src='assets/svg/title.svg' alt="Title '17120A: Rochambotics'">

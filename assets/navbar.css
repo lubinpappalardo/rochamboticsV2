@@ -100,12 +100,100 @@
             height: 22px;
         }
 
+        #mobile-navigation-btn {
+            display: flex;
+            align-items: center;
+            transform: translateY(-3px);
+        }
+
         @media only screen and (min-width: 768px) {
             & #mobile-navigation-btn {
                 display: none;
             }
         }
     }
+}
 
+#mobile-navigation-panel {
+    position: fixed;
+    top: 0;
+    right: -90%;
+    z-index: 9999;
+    width: 90%;
+    height: 100%;
+    background-image: linear-gradient(to bottom, hsl(var(--background)), var(--lightBackground));
+    box-shadow: 0 0 20px 0 hsl(var(--background) / 0.8);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 20px;
+    gap: 40px;
 
+    transition: right .3s ease-in-out;
+
+    & #mobile-navigation-btn-close {
+        padding-top: 8px;
+    }
+
+    & .nav-link {
+        text-wrap: nowrap;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        text-decoration: none;
+        color: var(--text);
+        position: relative;
+        font-size: 16px;
+
+        &:not(.active)::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--orange);
+            transform: scaleX(0);
+            /* transform-origin: left; */
+            transition: transform 0.3s ease-in-out;
+        }
+
+        &:active::before {
+            transform: scaleX(1);
+        }
+
+        &.active {
+            color: var(--greyish);
+        }
+    }
+
+    & .social-links {
+        width: 100%;
+        display: grid;
+        padding-top: 20px;
+        grid-template-columns: 1fr 1fr;
+        flex-wrap: wrap;
+        gap: 20px;
+
+        & a {
+            padding: 10px;
+            background: var(--grey);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            & .nav-social-link {
+                height: 30px;
+            }
+
+            &:active {
+                background: var(--orange);
+            }
+        }
+    }
+}
+
+#mobile-navigation-panel.active {
+    right: 0;
 }
