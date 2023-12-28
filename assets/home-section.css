@@ -1,0 +1,216 @@
+#home-section {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+
+#home-section .blurry-blob-container {
+    position: absolute;
+    z-index: -2;
+    width: 100vw;
+    height: 100vh;
+
+    & .blurry-blob {
+        position: absolute;
+        z-index: -2;
+        width: 30vw;
+        height: 30vw;
+        border-radius: 50%;
+        background-color: var(--lightBackground);
+    
+        right: 25vw;
+        top: 5vh;
+    }
+
+    & .blurry-blob-blur {
+        position: absolute;
+        z-index: -1;
+        width: 100vw;
+        height: 100vh;
+        -webkit-backdrop-filter: blur(100px);
+        backdrop-filter: blur(100px);
+    }
+}
+
+#angled-rectangle {
+    position: absolute;
+    z-index: -1;
+    height: 100vh;
+    background-image: linear-gradient(to bottom, var(--lightBackground), hsl(var(--background) / 0));
+    transform: skew(-20deg);
+    top: 0;
+    right: 20vw;
+
+    width: 25vw;
+    max-width: 600px;
+    min-width: 300px;
+
+    @media only screen and (max-width: 767px) {
+        & {
+            right: -20vw;
+        }
+    }
+}
+
+#image-overlay {
+    position: absolute;
+    z-index: 2;
+    bottom: 0;
+    right: 0;
+    width: 70vw;
+    transform: translate(5%, 30%);
+
+    @media only screen and (max-width: 767px) {
+        & {
+            width: 120vw;
+            left: 50%;
+            transform: translate(-50%, 30%);
+        }
+    }
+}
+
+
+#title-container {
+    position: absolute;
+    z-index: 1;
+    top: 22vh;
+    left: 10vw;
+    display: flex;
+    align-items: stretch;
+    gap: 40px;
+    height: 25vh;
+    max-height: 250px;
+
+    @media only screen and (min-width: 1920px) {
+        & {
+            top: 28vh;
+        }
+    }
+
+    @media only screen and (max-width: 767px) {
+        & {
+            flex-direction: column-reverse;
+            top: 20vh;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+
+    & #title {
+        height: 100%;
+
+        @media only screen and (max-width: 767px) {
+            & {
+                height: 75px;
+            }
+        }
+    }
+    
+    & #logo {
+        height: 100%;
+        aspect-ratio: 1/1;
+        background-image: url('images/rochambotics-logo.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+
+        @media only screen and (max-width: 767px) {
+            & {
+                height: 75px;
+            }
+        }
+    }
+
+    /* & #logo.hovered {
+        animation: logo 1s ease-in-out;
+    } */
+}
+
+@keyframes logo {
+    0% {
+        background-image: url('images/rochambotics-logo.png');
+        transform: rotateY(0deg);
+    }
+    24.9% {
+        background-image: url('images/rochambotics-logo.png');
+    }
+    25% {
+        transform: rotateY(90deg);
+        background-image: url('images/rochambotics-logo-outline.png');
+    }
+    50% {
+        transform: rotateY(0deg);
+        background-image: url('images/rochambotics-logo-outline.png');
+    }
+    74.9% {
+        background-image: url('images/rochambotics-logo-outline.png');
+    }
+    75% {
+        transform: rotateY(90deg);
+        background-image: url('images/rochambotics-logo.png');
+    
+    }
+    100% {
+        transform: rotateY(0deg);
+        background-image: url('images/rochambotics-logo.png');
+    }
+}
+
+#description {
+    position: absolute;
+    background-image: linear-gradient(to right, var(--darkBlue), hsl(var(--background) / 0));
+    z-index: 0;
+    top: 55vh;
+    left: 10vw;
+    width: 35vw;
+    max-width: 500px;
+    min-width: 300px;
+    font-size: calc(10px + 0.2vw);
+    line-height: 1.5;
+    color: var(--text);
+    padding: 10px 20px;
+}
+
+.navigation {
+    position: absolute;
+    z-index: 1;
+    bottom: 10vh;
+    left: 10vw;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-left: 20px;
+    cursor: pointer;
+
+    & * {
+        color: var(--grey);
+        font-size: 14px;
+        transition: color .3s;
+
+        @media only screen and (min-width: 1920px) {
+            & {
+                font-size: 18px;
+            }
+        }
+    }
+
+    @media only screen and (max-width: 767px) {
+        & {
+            bottom: 25vh;
+        }
+    }
+
+    @media only screen and (max-width: 767px) {
+        &:active * {
+            color: var(--text);
+        }
+    }
+    @media only screen and (min-width: 768px) {
+        &:hover * {
+            color: var(--text);
+        }
+    }
+}

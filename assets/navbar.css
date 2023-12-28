@@ -1,0 +1,111 @@
+#navbar {
+    --navbarHeight: 80px;
+    position: fixed;
+    z-index: 9999;
+    width: 100vw;
+    height: var(--navbarHeight);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px 60px;
+    gap: 20px;
+
+    @media only screen and (max-width: 767px) {
+        & {
+            padding: 10px 20px;
+        }
+    }
+
+    & .nav-link {
+        text-wrap: nowrap;
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: var(--text);
+        height: 100%;
+        position: relative;
+        font-size: 14px;
+
+        &::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--grey);
+            transform: scaleX(0);
+            /* transform-origin: left; */
+            transition: transform 0.3s ease-in-out;
+        }
+
+        &:hover::before {
+            transform: scaleX(1);
+        }
+
+        @media only screen and (max-width: 767px) {
+            & {
+                display: none;
+            }
+        }
+    }
+
+
+    & > a > img {
+        height: 40px;
+
+        @media only screen and (max-width: 767px) {
+            & {
+                height: 30px;
+            }
+        }
+    }
+
+    & .right-aligned-icons-container {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 20px;
+
+        & .nav-social-link {
+            cursor: pointer;
+            animation: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+
+            @media only screen and (max-width: 767px) {
+                & {
+                    display: none;
+                }
+            }
+        }
+
+        & .nav-social-link:hover {
+            transform: scale(1.1);
+            opacity: 0.8;
+        }
+
+        & img {
+            height: 30px;
+        }
+
+        & .link-gofundme {
+            height: 20px;
+        }
+
+        & .link-mail {
+            height: 29px;
+        }
+
+        & .link-instagram {
+            height: 22px;
+        }
+
+        @media only screen and (min-width: 768px) {
+            & #mobile-navigation-btn {
+                display: none;
+            }
+        }
+    }
+
+
+}

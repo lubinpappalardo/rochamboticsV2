@@ -1,0 +1,20 @@
+:root {
+    --background: 0 0% 10%;
+    --lightBackground: #282828;
+    --text: #ededed;
+    --greyish:  #c3c3c3;
+    --grey: #545454;
+    --darkBlue: #033B55;
+    /* --lightbg: rgba(46 45 45 / 0.3);
+    --lightbg2: rgb(46 45 45);
+    --blackBlue: #033b55;
+    --blackBlueTransparent: rgba(3 59 85 / 0.8);
+    --blue: #0e65a3;
+    --lightBlue: #008cf0;
+    --darkOrange: #865000;
+    --orange: #f79500;
+    --greyish:  #f2f2f2;
+    --grey:  #8a8a8a;
+
+    --navWidth: 60px; */
+}
