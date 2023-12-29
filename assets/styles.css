@@ -1,6 +1,7 @@
 @import 'root.css';
 @import 'navbar.css';
 @import 'home-section.css';
+@import 'about-section.css';
 
 
 * {
@@ -14,7 +15,7 @@
 html {
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 body {
@@ -25,7 +26,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 @media (max-width: 767px) {
@@ -39,6 +40,17 @@ h1, h2, h3, h4 {
   font-weight: 900;
   font-style: normal;
 }
+
+section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* --- --- --- --- --- --- --- ---
+        Lines
+--- --- --- --- --- --- --- --- */
 
 .line {
   position: absolute;
@@ -57,5 +69,52 @@ h1, h2, h3, h4 {
       height: 100%;
       left: 10vw;
       top: 0;
+  }
+}
+
+/* --- --- --- --- --- --- --- ---
+        Navigation
+--- --- --- --- --- --- --- --- */
+
+.navigation {
+  -webkit-user-select: none;
+  user-select: none;
+  position: absolute;
+  z-index: 3;
+  bottom: 12vh;
+  left: 12vw;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-left: 20px;
+  cursor: pointer;
+
+  & * {
+      color: var(--grey);
+      font-size: 14px;
+      transition: color .3s;
+
+      @media only screen and (min-width: 1920px) {
+          & {
+              font-size: 18px;
+          }
+      }
+  }
+
+  @media only screen and (max-width: 767px) {
+      & {
+          bottom: 25vh;
+      }
+  }
+
+  @media only screen and (max-width: 767px) {
+      &:active * {
+          color: var(--text);
+      }
+  }
+  @media only screen and (min-width: 768px) {
+      &:hover * {
+          color: var(--text);
+      }
   }
 }

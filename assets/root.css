@@ -1,7 +1,8 @@
 :root {
     --background: 0 0% 10%;
     --lightBackground: #282828;
-    --text: #ededed;
+    --text: hsl(0, 0%, 93%);
+    --textHSL: 0 0% 93%;
     --greyish:  #c3c3c3;
     --grey: #545454;
     --darkBlue: #033B55;
