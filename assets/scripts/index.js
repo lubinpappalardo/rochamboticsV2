@@ -52,29 +52,52 @@ function scrollReveal() {
 
 
     let scrollPosition = window.scrollY / (document.body.offsetHeight - window.innerHeight);
-    let textElement;
+    let elem;
     let tunedValue;
 
     // Logo
     tunedValue = mapRange(scrollPosition, 0.0, 0.5); // Invert the value
-    textElement = document.querySelector('#logo');
-    textElement.style.transform = 'rotate(' + tunedValue * 360 + 'deg)';
+    elem = document.querySelector('#logo');
+    elem.style.transform = 'rotate(' + tunedValue * 360 + 'deg)';
 
     // Image overlay
     tunedValue = (mapRange(scrollPosition, 0.2, 0.8) - 1) * -1; // Invert the value
-    textElement = document.querySelector('#image-overlay');
-    textElement.style.opacity = tunedValue;
+    elem = document.querySelector('#image-overlay');
+    elem.style.opacity = tunedValue;
 
     // Title
     tunedValue = mapRange(scrollPosition, 0.3, 0.5);
-    textElement = document.querySelector('.scroll-reveal-title');
-    textElement.style.backgroundSize = tunedValue * 100 + '% 100%';
+    elem = document.querySelector('.scroll-reveal-title');
+    elem.style.backgroundSize = tunedValue * 100 + '% 100%';
     
     // Text
-    tunedValue = window.scrollY / (document.body.offsetHeight - window.innerHeight);
-    scrollPosition = mapRange(scrollPosition, 0.5, 1);
-    textElement = document.querySelector('.scroll-reveal-text');
-    textElement.style.backgroundSize = tunedValue * 100 + '% 100%';
+    tunedValue = mapRange(scrollPosition, 0.5, 1);
+    elem = document.querySelector('.scroll-reveal-text');
+    elem.style.backgroundSize = tunedValue * 100 + '% 100%';
+
+    // Images
+    tunedValue = mapRange(scrollPosition, 0.5, 1);
+    elem = document.querySelector('.image1');
+    elem.style.transform = 'translate(-' + tunedValue * 60 + '%, -' + tunedValue * 30 + '%) rotate(-10deg)';
+    elem = document.querySelector('.image2');
+    elem.style.transform = 'translate(0%, 0%) rotate(' + tunedValue * 5 + 'deg)';
+    elem = document.querySelector('.image3');
+    elem.style.transform = 'translate(' + tunedValue * 50 + '%, ' + tunedValue * 50 + '%) rotate(10deg)';
+
+    if (tunedValue >= 1) {
+        const imageContainers = document.querySelectorAll('.image-container');
+        imageContainers.forEach(elem => {
+            elem.style.transitionDuration = '.3s';
+            elem.classList.add('hover-allowed');
+        });
+    } else {
+        const imageContainers = document.querySelectorAll('.image-container');
+        imageContainers.forEach(elem => {
+            elem.style.transitionDuration = '0s';
+            elem.classList.remove('hover-allowed');
+        });
+    }
+
 }
 
 scrollReveal();

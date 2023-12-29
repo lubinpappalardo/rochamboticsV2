@@ -73,7 +73,7 @@
         </p>
     </div>
 
-    <div class='navigation'>
+    <div onclick="window.scrollTo({ top: document.getElementById('about-section').offsetTop, behavior: 'smooth' })" class='navigation'>
         <span class="material-symbols-outlined">expand_more</span>
         <p>Who are we?</p>
     </div>
@@ -88,25 +88,33 @@
 
     <div class='content-container'>
 
-        <div class='navigation top'>
-            <span class="material-symbols-outlined">expand_less</span>
-            <p>Home</p>
+        <div class="text-content">
+            <div onclick="window.scrollTo({ top: document.getElementById('home-section').offsetTop, behavior: 'smooth' })" class='navigation top'>
+                <span class="material-symbols-outlined">expand_less</span>
+                <p>Home</p>
+            </div>
+
+            <h3 class="scroll-reveal-title">Who are we ?</h3>
+
+            <p>
+        <span class='scroll-reveal-text'>
+            We are Rochambotics, a Robotics and engineering club of Rochambeau French International School.
+            We are a small team of 8 students in high school whose goal is to get together to think and create robots to compete in the Vex Robotics Competition.
+            It is managed by Vex Robotics, a platform for education Robotics. Every year, a new game and rules are made, and different teams all across the world start developing their robot to try to compete and win during the multiple competitions across the year.
+            This club aims to get together with other students motivated to design, build, and program robots that will compete against other school teams. The Vex Robotics Competition is an excellent way for team members to bond while working together to achieve a common goal. The competition promotes teamwork, communication skills, problem-solving, and critical thinking.
+        </span>
+            </p>
+
+            <div class='navigation'>
+                <span class="material-symbols-outlined">expand_more</span>
+                <p>In numbers</p>
+            </div>
         </div>
 
-        <h3 class="scroll-reveal-title">Who are we ?</h3>
-
-        <p>
-    <span class='scroll-reveal-text'>
-        We are Rochambotics, a Robotics and engineering club of Rochambeau French International School.
-        We are a small team of 8 students in high school whose goal is to get together to think and create robots to compete in the Vex Robotics Competition.
-        It is managed by Vex Robotics, a platform for education Robotics. Every year, a new game and rules are made, and different teams all across the world start developing their robot to try to compete and win during the multiple competitions across the year.
-        This club aims to get together with other students motivated to design, build, and program robots that will compete against other school teams. The Vex Robotics Competition is an excellent way for team members to bond while working together to achieve a common goal. The competition promotes teamwork, communication skills, problem-solving, and critical thinking.
-    </span>
-        </p>
-
-        <div class='navigation'>
-            <span class="material-symbols-outlined">expand_more</span>
-            <p>In numbers</p>
+        <div class='image-content'>
+            <div class="image-container image1"><img src='assets/images/about-image (1).JPG' alt="Rochambotics at a competition"></div>
+            <div class="image-container image2"><img src='assets/images/about-image (2).JPG' alt="Rochambotics at a competition"></div>
+            <div class="image-container image3"><img src='assets/images/about-image (3).JPG' alt="Rochambotics at a competition"></div>
         </div>
     </div>
 

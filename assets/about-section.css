@@ -7,13 +7,22 @@
 
 #about-section .content-container {
     display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100vw;
+}
+
+#about-section .content-container .text-content {
+    display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    padding-left: calc(10vw + 40px);
+
     width: 60vw;
     min-width: 300px;
     max-width: 100%;
+    padding-left: calc(10vw + 40px);
+    padding-right: 40px;
 
     & .scroll-reveal-title {
         font-size: 42px;
@@ -41,6 +50,102 @@
         background-image: linear-gradient(90deg, var(--text), var(--text));
     }
 }
+
+#about-section .content-container .image-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 40vw;
+    height: 100%;
+
+    & .image-container {
+        position: absolute;
+        border-radius: 10px;
+        overflow: hidden;
+        border: 2px solid var(--grey);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 0 20px 0 hsl(var(--background) / 0.8);
+        transition: transform ease-in-out;
+
+        & img {
+            width: 15vw;
+            height: auto;
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            background: linear-gradient(
+                hsl(var(--background) / 0.15),
+                hsl(var(--background) / 0.15) 3px,
+                transparent 3px,
+                transparent 5px
+            );
+            background-size: 100% 5px;
+            height: 100%;
+            width: 100%;
+            animation: pan-overlay 22s infinite linear;
+            position: absolute;
+            z-index: 2;
+            left: 0px;
+            top: 0px;
+        }
+
+        &.image1 {
+            transform: translate(0%, 0%) rotate(-10deg);
+        }
+
+        &.image2 {
+            transform: translate(0%, 0%) rotate(0deg);
+        }
+
+        &.image3 {
+            transform: translate(0%, 0%) rotate(10deg);
+        }
+
+    }
+
+    &:has(.image1.hover-allowed:hover) .image-container {
+        &.image1 { transform: translate(-60%, -30%) rotate(0deg) scale(1.1) !important; }
+
+        &.image2 { transform: translate(40%, 40%) rotate(8deg) scale(0.8) !important; }
+
+        &.image3 { transform: translate(60%, 60%) rotate(10deg) scale(0.8) !important; }
+    }
+
+    
+    &:has(.image2.hover-allowed:hover) .image-container {
+        &.image1 { transform: translate(-70%, -40%) rotate(-15deg) scale(0.8) !important; }
+
+        &.image2 { transform: translate(0%, 0%) rotate(0deg) scale(1.1) !important; }
+
+        &.image3 { transform: translate(60%, 60%) rotate(10deg) scale(0.8) !important; }
+    }
+
+    &:has(.image3.hover-allowed:hover) .image-container {
+        &.image1 { transform: translate(-70%, -40%) rotate(-15deg) scale(0.8) !important; }
+
+        &.image2 { transform: translate(-40%, -30%) rotate(-10deg) scale(0.8) !important; }
+
+        &.image3 { transform: translate(50%, 50%) rotate(0deg) scale(1.1) !important; }
+    }
+
+}
+
+@keyframes pan-overlay {
+    from {
+      background-position: 0% 0%;
+    }
+    
+    to {
+      background-position: 0% -100%;
+    }
+  }
 
 #about-section .navigation.top {
     bottom: auto;
