@@ -16,11 +16,12 @@
     width: 100%;
 
     @media only screen and (max-width: 767px) {
-        flex-direction: column;
+        flex-direction: column-reverse;
         align-items: stretch;
         justify-content: flex-start;
         height: 100%;
         padding-top: var(--navbarHeight);
+        padding-bottom: 10px;
     }
 }
 
@@ -61,7 +62,7 @@
         background-image: linear-gradient(90deg, var(--text), var(--text));
 
         @media only screen and (max-width: 767px) {
-            font-size: 30px;
+            font-size: 28px;
             margin-bottom: 10px;
         }
     }
@@ -112,6 +113,10 @@
         justify-content: center;
         box-shadow: 0 0 20px 0 hsl(var(--background) / 0.8);
         transition: transform ease-in-out;
+
+        @media only screen and (max-width: 767px) {
+            border: 1px solid var(--grey);
+        }
 
         & img {
             width: 15vw;
