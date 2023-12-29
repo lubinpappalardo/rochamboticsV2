@@ -9,6 +9,11 @@
     align-items: center;
     padding: 20px 60px;
     gap: 20px;
+    transition: background-color .3s ease-in-out;
+
+    &.scrolled {
+        background-color: hsl(var(--background));
+    }
 
     @media only screen and (max-width: 767px) {
         & {

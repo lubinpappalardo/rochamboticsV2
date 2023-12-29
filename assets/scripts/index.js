@@ -3,6 +3,7 @@ const mobileNavigationPanel = document.querySelector('#mobile-navigation-panel')
 const mobileNavigationButton = document.querySelector('#mobile-navigation-btn');
 const mobileNavigationButtonClose = document.querySelector('#mobile-navigation-btn-close');
 const aboutSection = document.querySelector('#about-section');
+const navbar = document.querySelector('#navbar');
 
 logoElement.addEventListener('mouseover', () => {
     if (logoElement.classList.contains('hovered')) {
@@ -41,6 +42,15 @@ window.addEventListener('scroll', function() {
 });
 
 function scrollReveal() {
+
+    if (window.scrollY > 0) {
+        navbar.classList.add('scrolled');
+    }
+    else {
+        navbar.classList.remove('scrolled');
+    }
+
+
     let scrollPosition = window.scrollY / (document.body.offsetHeight - window.innerHeight);
     let textElement;
     let tunedValue;
