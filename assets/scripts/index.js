@@ -41,6 +41,40 @@ window.addEventListener('scroll', function() {
     scrollReveal();
 });
 
+let aboutSectionImagesPositions;
+
+if (window.innerWidth < 768) {
+    aboutSectionImagesPositions = {
+        image1: {
+            x: -80,
+            y: -20,  
+        },
+        image2: {
+            x: 0,
+            y: -10,
+        },
+        image3: {
+            x: 80,
+            y: 10,
+        }
+    };
+} else {
+    aboutSectionImagesPositions = {
+        image1: {
+            x: -60,
+            y: -30, 
+        },
+        image2: {
+            x: 0,
+            y: 0,
+        },
+        image3: {
+            x: 50,
+            y: 50,
+        }
+    };
+}
+
 function scrollReveal() {
 
     if (window.scrollY > 0) {
@@ -78,11 +112,11 @@ function scrollReveal() {
     // Images
     tunedValue = mapRange(scrollPosition, 0.5, 1);
     elem = document.querySelector('.image1');
-    elem.style.transform = 'translate(-' + tunedValue * 60 + '%, -' + tunedValue * 30 + '%) rotate(-10deg)';
+    elem.style.transform = 'translate(' + tunedValue * aboutSectionImagesPositions.image1.x + '%, ' + tunedValue * aboutSectionImagesPositions.image1.y + '%) rotate(-10deg)';
     elem = document.querySelector('.image2');
-    elem.style.transform = 'translate(0%, 0%) rotate(' + tunedValue * 5 + 'deg)';
+    elem.style.transform = 'translate(' + tunedValue * aboutSectionImagesPositions.image2.x + '%, ' + tunedValue * aboutSectionImagesPositions.image2.y + '%) rotate(' + tunedValue * 5 + 'deg)';
     elem = document.querySelector('.image3');
-    elem.style.transform = 'translate(' + tunedValue * 50 + '%, ' + tunedValue * 50 + '%) rotate(10deg)';
+    elem.style.transform = 'translate(' + tunedValue * aboutSectionImagesPositions.image3.x + '%, ' + tunedValue * aboutSectionImagesPositions.image3.y + '%) rotate(10deg)';
 
     if (tunedValue >= 1) {
         const imageContainers = document.querySelectorAll('.image-container');

@@ -9,7 +9,15 @@
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    width: 100vw;
+    width: 100%;
+
+    @media only screen and (max-width: 767px) {
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        height: 100%;
+        padding-top: var(--navbarHeight);
+    }
 }
 
 #about-section .content-container .text-content {
@@ -24,10 +32,17 @@
     padding-left: calc(10vw + 40px);
     padding-right: 40px;
 
+    @media only screen and (max-width: 767px) {
+        width: 100%;
+        padding-left: 10vw;
+        padding-top: 0;
+    }
+
     & .scroll-reveal-title {
         font-size: 42px;
         font-weight: 900;
         margin-bottom: 20px;
+        margin-top: 10px;
         
         color: hsl(var(--textHSL) / 0.3);
         -webkit-background-clip: text;
@@ -35,6 +50,11 @@
         background-repeat: no-repeat;
         background-size: 0% 100%;
         background-image: linear-gradient(90deg, var(--text), var(--text));
+
+        @media only screen and (max-width: 767px) {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
     }
 
     & .scroll-reveal-text {
@@ -48,6 +68,10 @@
         background-repeat: no-repeat;
         background-size: 0% 100%;
         background-image: linear-gradient(90deg, var(--text), var(--text));
+
+        @media only screen and (max-width: 767px) {
+            font-size: 11px;
+        }
     }
 }
 
@@ -60,6 +84,10 @@
 
     width: 40vw;
     height: 100%;
+
+    @media only screen and (max-width: 768px) {
+        width: 100%;
+    }
 
     & .image-container {
         position: absolute;
@@ -75,6 +103,10 @@
         & img {
             width: 15vw;
             height: auto;
+
+            @media only screen and (max-width: 767px) {
+                width: 30vw;
+            }
         }
 
         &::before {
@@ -111,28 +143,55 @@
     }
 
     &:has(.image1.hover-allowed:hover) .image-container {
-        &.image1 { transform: translate(-60%, -30%) rotate(0deg) scale(1.1) !important; }
+        &.image1 { 
+            transform: translate(-60%, -30%) rotate(0deg) scale(1.1) !important; 
+            @media only screen and (max-width: 768px) { transform: translate(-80%, -20%) rotate(0deg) scale(1.1) !important; }
+        }
 
-        &.image2 { transform: translate(40%, 40%) rotate(8deg) scale(0.8) !important; }
+        &.image2 { 
+            transform: translate(40%, 40%) rotate(8deg) scale(0.8) !important; 
+            @media only screen and (max-width: 768px) { transform: translate(60%, 0%) rotate(8deg) scale(0.8) !important; }
+        }
 
-        &.image3 { transform: translate(60%, 60%) rotate(10deg) scale(0.8) !important; }
+        &.image3 { 
+            transform: translate(60%, 60%) rotate(10deg) scale(0.8) !important;
+            @media only screen and (max-width: 768px) { transform: translate(80%, 20%) rotate(10deg) scale(0.8) !important; } 
+        }
     }
 
     
     &:has(.image2.hover-allowed:hover) .image-container {
-        &.image1 { transform: translate(-70%, -40%) rotate(-15deg) scale(0.8) !important; }
+        &.image1 { 
+            transform: translate(-70%, -40%) rotate(-15deg) scale(0.8) !important; 
+            @media only screen and (max-width: 768px) { transform: translate(-80%, -30%) rotate(-15deg) scale(0.8) !important;  } 
+        }
 
-        &.image2 { transform: translate(0%, 0%) rotate(0deg) scale(1.1) !important; }
+        &.image2 { 
+            transform: translate(0%, 0%) rotate(0deg) scale(1.1) !important; 
+            @media only screen and (max-width: 768px) { transform: translate(0%, -10%) rotate(0deg) scale(1.1) !important;  }
+        }
 
-        &.image3 { transform: translate(60%, 60%) rotate(10deg) scale(0.8) !important; }
+        &.image3 { 
+            transform: translate(60%, 60%) rotate(10deg) scale(0.8) !important; 
+            @media only screen and (max-width: 768px) { transform: translate(80%, 20%) rotate(10deg) scale(0.8) !important; }
+        }
     }
 
     &:has(.image3.hover-allowed:hover) .image-container {
-        &.image1 { transform: translate(-70%, -40%) rotate(-15deg) scale(0.8) !important; }
+        &.image1 { 
+            transform: translate(-70%, -40%) rotate(-15deg) scale(0.8) !important;
+            @media only screen and (max-width: 768px) { transform: translate(-80%, -30%) rotate(-15deg) scale(0.8) !important; } 
+        }
 
-        &.image2 { transform: translate(-40%, -30%) rotate(-10deg) scale(0.8) !important; }
+        &.image2 { 
+            transform: translate(-40%, -30%) rotate(-10deg) scale(0.8) !important; 
+            @media only screen and (max-width: 768px) { transform: translate(-60%, -20%) rotate(-10deg) scale(0.8) !important;  }
+        }
 
-        &.image3 { transform: translate(50%, 50%) rotate(0deg) scale(1.1) !important; }
+        &.image3 { 
+            transform: translate(50%, 50%) rotate(0deg) scale(1.1) !important; 
+            @media only screen and (max-width: 768px) { transform: translate(50%, 0%) rotate(0deg) scale(1.1) !important;  }
+        }
     }
 
 }
@@ -147,7 +206,9 @@
     }
   }
 
-#about-section .navigation.top {
+#about-section .navigation {
+    position: relative;
+    top: auto;
+    left: auto;
     bottom: auto;
-    top: 15vh;
 }
