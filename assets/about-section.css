@@ -5,6 +5,10 @@
     justify-content: center;
 }
 
+/* --- --- --- --- --- --- --- ---
+        Content container
+--- --- --- --- --- --- --- --- */
+
 #about-section .content-container {
     display: flex;
     align-items: flex-start;
@@ -19,6 +23,11 @@
         padding-top: var(--navbarHeight);
     }
 }
+
+/* --- --- --- --- --- --- --- ---
+        Text container
+    (navigation + title + text)
+--- --- --- --- --- --- --- --- */
 
 #about-section .content-container .text-content {
     display: flex;
@@ -52,7 +61,7 @@
         background-image: linear-gradient(90deg, var(--text), var(--text));
 
         @media only screen and (max-width: 767px) {
-            font-size: 32px;
+            font-size: 30px;
             margin-bottom: 10px;
         }
     }
@@ -75,6 +84,10 @@
     }
 }
 
+/* --- --- --- --- --- --- --- ---
+        Image container
+--- --- --- --- --- --- --- --- */
+
 #about-section .content-container .image-content {
     position: relative;
     display: flex;
@@ -85,7 +98,7 @@
     width: 40vw;
     height: 100%;
 
-    @media only screen and (max-width: 768px) {
+    @media only screen and (max-width: 767px) {
         width: 100%;
     }
 
@@ -108,6 +121,8 @@
                 width: 30vw;
             }
         }
+
+        /* lines overlay on image */
 
         &::before {
             content: '';
@@ -142,20 +157,22 @@
 
     }
 
+    /* Zoom on image animation on hover */
+
     &:has(.image1.hover-allowed:hover) .image-container {
         &.image1 { 
             transform: translate(-60%, -30%) rotate(0deg) scale(1.1) !important; 
-            @media only screen and (max-width: 768px) { transform: translate(-80%, -20%) rotate(0deg) scale(1.1) !important; }
+            @media only screen and (max-width: 767px) { transform: translate(-80%, -20%) rotate(0deg) scale(1.1) !important; }
         }
 
         &.image2 { 
             transform: translate(40%, 40%) rotate(8deg) scale(0.8) !important; 
-            @media only screen and (max-width: 768px) { transform: translate(60%, 0%) rotate(8deg) scale(0.8) !important; }
+            @media only screen and (max-width: 767px) { transform: translate(60%, 0%) rotate(8deg) scale(0.8) !important; }
         }
 
         &.image3 { 
             transform: translate(60%, 60%) rotate(10deg) scale(0.8) !important;
-            @media only screen and (max-width: 768px) { transform: translate(80%, 20%) rotate(10deg) scale(0.8) !important; } 
+            @media only screen and (max-width: 767px) { transform: translate(80%, 20%) rotate(10deg) scale(0.8) !important; } 
         }
     }
 
@@ -163,34 +180,34 @@
     &:has(.image2.hover-allowed:hover) .image-container {
         &.image1 { 
             transform: translate(-70%, -40%) rotate(-15deg) scale(0.8) !important; 
-            @media only screen and (max-width: 768px) { transform: translate(-80%, -30%) rotate(-15deg) scale(0.8) !important;  } 
+            @media only screen and (max-width: 767px) { transform: translate(-80%, -30%) rotate(-15deg) scale(0.8) !important;  } 
         }
 
         &.image2 { 
             transform: translate(0%, 0%) rotate(0deg) scale(1.1) !important; 
-            @media only screen and (max-width: 768px) { transform: translate(0%, -10%) rotate(0deg) scale(1.1) !important;  }
+            @media only screen and (max-width: 767px) { transform: translate(0%, -10%) rotate(0deg) scale(1.1) !important;  }
         }
 
         &.image3 { 
             transform: translate(60%, 60%) rotate(10deg) scale(0.8) !important; 
-            @media only screen and (max-width: 768px) { transform: translate(80%, 20%) rotate(10deg) scale(0.8) !important; }
+            @media only screen and (max-width: 767px) { transform: translate(80%, 20%) rotate(10deg) scale(0.8) !important; }
         }
     }
 
     &:has(.image3.hover-allowed:hover) .image-container {
         &.image1 { 
             transform: translate(-70%, -40%) rotate(-15deg) scale(0.8) !important;
-            @media only screen and (max-width: 768px) { transform: translate(-80%, -30%) rotate(-15deg) scale(0.8) !important; } 
+            @media only screen and (max-width: 767px) { transform: translate(-80%, -30%) rotate(-15deg) scale(0.8) !important; } 
         }
 
         &.image2 { 
             transform: translate(-40%, -30%) rotate(-10deg) scale(0.8) !important; 
-            @media only screen and (max-width: 768px) { transform: translate(-60%, -20%) rotate(-10deg) scale(0.8) !important;  }
+            @media only screen and (max-width: 767px) { transform: translate(-60%, -20%) rotate(-10deg) scale(0.8) !important;  }
         }
 
         &.image3 { 
             transform: translate(50%, 50%) rotate(0deg) scale(1.1) !important; 
-            @media only screen and (max-width: 768px) { transform: translate(50%, 0%) rotate(0deg) scale(1.1) !important;  }
+            @media only screen and (max-width: 767px) { transform: translate(50%, 0%) rotate(0deg) scale(1.1) !important;  }
         }
     }
 
@@ -205,6 +222,11 @@
       background-position: 0% -100%;
     }
   }
+
+/* --- --- --- --- --- --- --- ---
+        Navigation
+    (not absolute anymore)
+--- --- --- --- --- --- --- --- */
 
 #about-section .navigation {
     position: relative;
