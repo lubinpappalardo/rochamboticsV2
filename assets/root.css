@@ -8,10 +8,13 @@
     --darkBlue: #033B55;
     --orange: #E19938;
 
+    --goldenRatio: 1.618;
+
     --navbarHeight: 80px;
     @media only screen and (max-width: 767px) {
         --navbarHeight: 60px;
     }
+
     /* --lightbg: rgba(46 45 45 / 0.3);
     --lightbg2: rgb(46 45 45);
     --blackBlue: #033b55;

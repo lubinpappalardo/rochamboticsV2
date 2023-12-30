@@ -93,17 +93,18 @@ setAboutSectionImagesPositions();
 
 function scrollReveal() {
 
-    if (!Number.isInteger(window.scrollY)) {
-        navbar.classList.add('scrolled');
-    }
-    else {
-        navbar.classList.remove('scrolled');
-    }
-
-
     let scrollPosition = window.scrollY / window.innerHeight; // 0 = home section   1 = about section   2 = number section
     let elem;
     let tunedValue;
+
+    /* check if scroll is near a perfect stop at a section */
+    /* == check if scrollPosition is near an integer */
+    if (scrollPosition % 1 < 0.05 || scrollPosition % 1 > 0.95) {
+        navbar.classList.remove('scrolled');
+    }
+    else {
+        navbar.classList.add('scrolled');
+    }
 
     // Logo
     tunedValue = mapRange(scrollPosition, 0.0, 0.5); // Invert the value
@@ -116,12 +117,12 @@ function scrollReveal() {
     elem.style.opacity = (tunedValue - 1 * -1);  // Invert the value (1 becomes 0 and 0 becomes 1)
     elem.style.transform = 'translate(' + (isMobile() ? -50 : 5) + '%,' + (30 + tunedValue * 50) + '%)';
 
-    // Title
+    // About section title
     tunedValue = mapRange(scrollPosition, 0.3, 0.5);
-    elem = document.querySelector('.scroll-reveal-title');
+    elem = document.querySelector('.scroll-reveal-title span');
     elem.style.backgroundSize = tunedValue * 100 + '% 100%';
     
-    // Text
+    // text
     tunedValue = mapRange(scrollPosition, 0.5, 1);
     elem = document.querySelector('.scroll-reveal-text');
     elem.style.backgroundSize = tunedValue * 100 + '% 100%';
@@ -149,6 +150,33 @@ function scrollReveal() {
         });
     }
 
+    // Numbers section title 
+    tunedValue = mapRange(scrollPosition, 1.4, 2);
+    elem = document.querySelector('.scroll-reveal-numbers-section-title span');
+    elem.style.backgroundSize = tunedValue * 100 + '% 100%';
+
 }
 
 scrollReveal();
+
+
+function borderEffect(e) {
+    // have radial gradient follow mouse
+    let x = e.clientX;
+    let y = e.clientY;
+    const elemBoundingClientRect = this.getBoundingClientRect();
+    this.style.setProperty('--gradientX', (mapRange(x, elemBoundingClientRect.left, elemBoundingClientRect.left + elemBoundingClientRect.width) * 100) + '%');
+    this.style.setProperty('--gradientY', (mapRange(y, elemBoundingClientRect.top, elemBoundingClientRect.top + elemBoundingClientRect.height) * 100) + '%');
+};
+
+function borderEffectEnd() {
+    this.style.setProperty('--gradientX', '-100%');
+    this.style.setProperty('--gradientY', '-100%');
+}
+
+let elements = document.getElementsByClassName('number-container');
+
+for (let i = 0; i < elements.length; i++) {
+    elements[i].addEventListener('mousemove', borderEffect, false)
+    elements[i].addEventListener('mouseleave', borderEffectEnd, false);
+}

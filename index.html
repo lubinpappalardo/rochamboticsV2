@@ -97,7 +97,7 @@
                 <p>Home</p>
             </div>
 
-            <h3 class="scroll-reveal-title">Who are we ?</h3>
+            <h3 class="scroll-reveal-title"><span>Who are we ?</span></h3>
 
             <p>
                 <span class='scroll-reveal-text'>
@@ -108,7 +108,7 @@
                 </span>
             </p>
 
-            <div onclick="window.scrollTo({ top: document.getElementById('number-section').offsetTop, behavior: 'smooth' })" class='navigation'>
+            <div onclick="window.scrollTo({ top: document.getElementById('numbers-section').offsetTop, behavior: 'smooth' })" class='navigation'>
                 <span class="material-symbols-outlined">expand_more</span>
                 <p>In numbers</p>
             </div>
@@ -123,16 +123,48 @@
 
 </section>
 
-<section id="number-section">
+<section id="numbers-section">
 
     <div class="line left-line"></div>
 
-    <div onclick="window.scrollTo({ top: document.getElementById('about-section').offsetTop, behavior: 'smooth' })" class='navigation top'>
-        <span class="material-symbols-outlined">expand_less</span>
-        <p>Who are we?</p>
-    </div>
-
     <div class="line bottom-line"></div>
+
+    <div class='content-container'>
+
+        <div class="text-content">
+
+            <div onclick="window.scrollTo({ top: document.getElementById('about-section').offsetTop, behavior: 'smooth' })" class='navigation top'>
+                <span class="material-symbols-outlined">expand_less</span>
+                <p>Who are we?</p>
+            </div>
+
+            <h3 class="scroll-reveal-numbers-section-title"><span>Rochambotics in numbers</span></h3>
+
+        </div>
+
+        <div class='numbers-container'>
+            <div class='number-container'>
+                <h4 class='number'>8</h4>
+                <p class="number-alt">members</p>
+            </div>
+
+            <div class='number-container'>
+                <h4 class='number'>7</h4>
+                <p class="number-alt">nationalities</p>
+            </div>
+
+            <div class='number-container'>
+                <h4 class='number'>1+</h4>
+                <p class="number-alt">year(s), age of the club</p>
+            </div>
+
+            <div class='number-container'>
+                <h4 class='number'>2</h4>
+                <p class="number-alt">competitions we participated in</p>
+            </div>
+        </div>
+
+    </div>
 
     <footer id="footer">
         <span>Website: <a>@lubinpappalardo</a> on github.</span>

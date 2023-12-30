@@ -1,0 +1,162 @@
+#numbers-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+/* --- --- --- --- --- --- --- ---
+        Content container
+--- --- --- --- --- --- --- --- */
+
+#numbers-section .content-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding-top: var(--navbarHeight);
+
+    @media only screen and (max-width: 767px) {
+        height: auto;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        padding-bottom: 10vh;
+        gap: 60px;
+    }
+}
+
+/* --- --- --- --- --- --- --- ---
+        Text container
+    (navigation + title)
+--- --- --- --- --- --- --- --- */
+
+#numbers-section .content-container .text-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    width: 50%;
+    height: 100%;
+    min-width: 300px;
+    max-width: 100%;
+    padding-left: calc(10vw + 40px);
+    padding-right: 40px;
+    padding-top: 10vh;
+
+    @media only screen and (max-width: 767px) {
+        width: 100%;
+        padding-left: 10vw;
+        padding-top: 0;
+    }
+
+    & span {
+        color: hsl(var(--textHSL) / 0.3);
+        -webkit-background-clip: text;
+        background-clip: text;
+        background-repeat: no-repeat;
+        background-size: 0% 100%;
+        background-image: linear-gradient(90deg, var(--text), var(--text));
+    }
+
+    & .scroll-reveal-numbers-section-title {
+        font-size: 42px;
+        font-weight: 900;
+        margin-bottom: 20px;
+        margin-top: 10px;
+
+
+        @media only screen and (max-width: 767px) {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+    }
+}
+
+/* --- --- --- --- --- --- --- ---
+        Numbers container
+--- --- --- --- --- --- --- --- */
+
+#numbers-section .content-container .numbers-container {
+    position: relative;
+    display: flex;
+    /* flex-direction: column; */
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    width: 50vw;
+    height: 100%;
+
+    @media only screen and (max-width: 767px) {
+        width: 100%;
+    }
+
+    & .number-container {
+        position: relative;
+        z-index: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        --height: 150px;
+        height: var(--height);
+        width: calc(var(--height) * var(--goldenRatio));
+        padding: 20px 10px;
+        background: var(--background);
+        border-radius: 10px;
+        box-shadow: 10px 10px 20px 0px hsl(0 0% 0% / 0.2);
+        overflow: hidden;
+
+        --gradientX: 50%;
+        --gradientY: 50%;
+
+        &::before {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            border-radius: calc(10px - 1px);
+            inset: 1px;
+            background-color: var(--lightBackground);
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            z-index: -2;
+            width: 150px;
+            height: 150px;
+            top: var(--gradientY);
+            left: var(--gradientX);
+            transform: translate(-50%, -50%);
+            background-image: radial-gradient(circle, var(--greyish) 0%, hsl(var(--background) / 0) 100%);
+        }
+
+        & .number {
+            color: var(--orange);
+            font-size: 32px;
+            margin: 10px;
+        }
+
+        & .number-alt {
+            color: var(--greyish);
+            font-size: 12px;
+            text-align: center;
+        }
+    }
+}
+
+
+/* --- --- --- --- --- --- --- ---
+        Navigation
+    (not absolute anymore)
+--- --- --- --- --- --- --- --- */
+
+#numbers-section .navigation {
+    position: relative;
+    top: auto;
+    left: auto;
+    bottom: auto;
+}
