@@ -26,6 +26,10 @@ mobileNavigationButtonClose.addEventListener('click', () => {
 });
 
 
+function isMobile() {
+    return (window.innerWidth < 768) ? true : false;
+}
+
 
 // Linear interpolation. It's used to map a value from one range to another.
 function mapRange(value, inputMin, inputMax) {
@@ -46,37 +50,46 @@ window.addEventListener('scroll', function() {
 
 let aboutSectionImagesPositions;
 
-if (window.innerWidth < 768) {
-    aboutSectionImagesPositions = {
-        image1: {
-            x: -80,
-            y: -20,  
-        },
-        image2: {
-            x: 0,
-            y: -10,
-        },
-        image3: {
-            x: 80,
-            y: 10,
-        }
-    };
-} else {
-    aboutSectionImagesPositions = {
-        image1: {
-            x: -60,
-            y: -30, 
-        },
-        image2: {
-            x: 0,
-            y: 0,
-        },
-        image3: {
-            x: 50,
-            y: 50,
-        }
-    };
+function setAboutSectionImagesPositions() {
+    if (isMobile()) {
+        aboutSectionImagesPositions = {
+            image1: {
+                x: -80,
+                y: -20,  
+            },
+            image2: {
+                x: 0,
+                y: -10,
+            },
+            image3: {
+                x: 80,
+                y: 10,
+            }
+        };
+    } else {
+        aboutSectionImagesPositions = {
+            image1: {
+                x: -60,
+                y: -30, 
+            },
+            image2: {
+                x: 0,
+                y: 0,
+            },
+            image3: {
+                x: 50,
+                y: 50,
+            }
+        };
+    }
 }
+
+window.addEventListener('resize', function() {
+    isMobile();
+    setAboutSectionImagesPositions();
+});
+
+setAboutSectionImagesPositions();
 
 function scrollReveal() {
 
@@ -88,7 +101,7 @@ function scrollReveal() {
     }
 
 
-    let scrollPosition = window.scrollY / (document.body.offsetHeight - window.innerHeight);
+    let scrollPosition = window.scrollY / window.innerHeight; // 0 = home section   1 = about section   2 = number section
     let elem;
     let tunedValue;
 
@@ -98,9 +111,10 @@ function scrollReveal() {
     elem.style.transform = 'rotate(' + tunedValue * 360 + 'deg)';
 
     // Image overlay
-    tunedValue = (mapRange(scrollPosition, 0.2, 0.8) - 1) * -1; // Invert the value
+    tunedValue = mapRange(scrollPosition, 0.2, 0.8);
     elem = document.querySelector('#image-overlay');
-    elem.style.opacity = tunedValue;
+    elem.style.opacity = (tunedValue - 1 * -1);  // Invert the value (1 becomes 0 and 0 becomes 1)
+    elem.style.transform = 'translate(' + (isMobile() ? -50 : 5) + '%,' + (30 + tunedValue * 50) + '%)';
 
     // Title
     tunedValue = mapRange(scrollPosition, 0.3, 0.5);

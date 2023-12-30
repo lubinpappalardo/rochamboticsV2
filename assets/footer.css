@@ -1,0 +1,27 @@
+#footer {
+    position: absolute;
+    bottom: 0;
+    left: 10vw;
+    width: calc(100% - 10vw);
+    height: 10vh;
+    padding: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+
+    & span {
+        color: var(--grey);
+        font-size: 12px;   
+
+        @media only screen and (max-width: 767px) {
+            font-size: 10px;
+        }
+    }
+
+    & a {
+        color: var(--grey);
+        text-decoration: underline; 
+    }
+}

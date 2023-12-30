@@ -108,7 +108,7 @@
                 </span>
             </p>
 
-            <div class='navigation'>
+            <div onclick="window.scrollTo({ top: document.getElementById('number-section').offsetTop, behavior: 'smooth' })" class='navigation'>
                 <span class="material-symbols-outlined">expand_more</span>
                 <p>In numbers</p>
             </div>
@@ -121,6 +121,23 @@
         </div>
     </div>
 
+</section>
+
+<section id="number-section">
+
+    <div class="line left-line"></div>
+
+    <div onclick="window.scrollTo({ top: document.getElementById('about-section').offsetTop, behavior: 'smooth' })" class='navigation top'>
+        <span class="material-symbols-outlined">expand_less</span>
+        <p>Who are we?</p>
+    </div>
+
+    <div class="line bottom-line"></div>
+
+    <footer id="footer">
+        <span>Website: <a>@lubinpappalardo</a> on github.</span>
+        <span>Bug or something not working? <a href="mailto:lubin.pappalardo@gmail.com">Contact me here.</a></span>
+    </footer>
 
 
 </section>
