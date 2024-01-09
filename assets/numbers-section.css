@@ -15,7 +15,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 40px;
+    gap: 5vw;
+
+    @media only screen and (max-width: 767px) {
+        gap: 5px;
+    }
 
     & .gear-container {
         position: relative;
@@ -23,6 +27,10 @@
         display: flex;
         justify-content: center;
         align-items: center;
+
+        @media only screen and (max-width: 767px) {
+            width: 100%;
+        }
 
         .numbers-container {
             position: absolute;;
@@ -39,14 +47,18 @@
                 width: 100%;
                 text-align: center;
                 color: var(--orange);
-                font-size: 64px;
+                font-size: calc(32px + 2vw);
                 font-family: "good-times", sans-serif;
                 font-weight: 900;
                 font-style: normal;
                 transition-property: transform, filter, opacity;
                 transition-duration: 0s;
                 transition-timing-function: ease-in-out;
-                text-shadow: 0 0 40px var(--orange), 0 0 10px var(--orange);    
+                text-shadow: 0 0 40px var(--orange), 0 0 10px var(--orange); 
+
+                @media only screen and (max-width: 767px) {
+                    text-shadow: 0 0 20px var(--orange), 0 0 5px var(--orange); 
+                }   
             }
         }
     }
@@ -69,20 +81,28 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    font-size: 64px;
+    font-size: calc(32px + 3vw);
     cursor: pointer;
     transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
 
-    &:hover {
-        transform: scale(1.1);
-        color: var(--greyish);
+    @media only screen and (min-width: 768px) {
+        &:hover {
+            transform: scale(1.1);
+            color: var(--greyish);
+        }
+    }
+    @media only screen and (max-width: 767px) {
+        &:active {
+            transform: scale(1.1);
+            color: var(--greyish);
+        }
     }
 }
 
 #number-alt {
     position: absolute;
     padding: 18px 32px;
-    transform: translateY(150%);
+    transform: translateY(200%);
     background: linear-gradient(0deg, var(--lightBackground) 0%, hsl(var(--background)) 100%);
     box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5);
     border: 1px solid var(--grey);
@@ -92,6 +112,10 @@
     text-align: center;
     font-size: 14px;
     transition: color 0.5s ease-in-out;
+
+    @media only screen and (max-width: 767px) {
+        padding: 12px 24px;
+    }   
 }
 
 

@@ -150,9 +150,9 @@ body:has(#mobile-navigation-panel.active) #mobile-navigation-panel-background-bl
 #mobile-navigation-panel {
     position: fixed;
     top: 0;
-    right: -90%;
+    right: -80%;
     z-index: 9999;
-    width: 90%;
+    width: 80%;
     height: 100%;
     background-image: linear-gradient(to bottom, hsl(var(--background)), var(--lightBackground));
     box-shadow: 0 0 20px 0 hsl(var(--background) / 0.8);
