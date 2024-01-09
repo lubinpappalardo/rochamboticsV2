@@ -151,32 +151,224 @@ function scrollReveal() {
     }
 
     // Numbers section title 
-    tunedValue = mapRange(scrollPosition, 1.4, 2);
-    elem = document.querySelector('.scroll-reveal-numbers-section-title span');
-    elem.style.backgroundSize = tunedValue * 100 + '% 100%';
+    // tunedValue = mapRange(scrollPosition, 1.4, 2);
+    // elem = document.querySelector('.scroll-reveal-numbers-section-title span');
+    // elem.style.backgroundSize = tunedValue * 100 + '% 100%';
 
 }
 
 scrollReveal();
 
 
-function borderEffect(e) {
-    // have radial gradient follow mouse
-    let x = e.clientX;
-    let y = e.clientY;
-    const elemBoundingClientRect = this.getBoundingClientRect();
-    this.style.setProperty('--gradientX', (mapRange(x, elemBoundingClientRect.left, elemBoundingClientRect.left + elemBoundingClientRect.width) * 100) + '%');
-    this.style.setProperty('--gradientY', (mapRange(y, elemBoundingClientRect.top, elemBoundingClientRect.top + elemBoundingClientRect.height) * 100) + '%');
-};
+const numbersContainer = document.querySelector('.numbers-container');
+const arrowLeft = document.querySelector('#number-left-arrow');
+const arrowRight = document.querySelector('#number-right-arrow');
+const innerGear = document.querySelector('#inner-gear');
+const outerGear = document.querySelector('#outer-gear');
 
-function borderEffectEnd() {
-    this.style.setProperty('--gradientX', '-100%');
-    this.style.setProperty('--gradientY', '-100%');
+let currentNumberIndex = 0;
+
+const numbers = [
+    {
+        number: '8',
+        alt: 'members in our team'
+    },
+    {
+        number: '7',
+        alt: 'nationalities in our team'
+    },
+    {
+        number: '2',
+        alt: 'seasons we participated in'
+    },
+    {
+        number: '1+',
+        alt: 'years, age of the club'
+    },
+    {
+        number: '2',
+        alt: 'competitions we participated in'
+    },
+    {
+        number: '1',
+        alt: 'award won'
+    }
+]
+
+let currentNumber;
+let oldNumber;
+let isThrottled = false;
+let throttleDuration = 500;
+const numberAlt = document.getElementById('number-alt');
+
+function appendNumber() {
+    const divElement = document.createElement('div');
+    divElement.classList.add('number');
+    divElement.textContent = numbers[currentNumberIndex].number;
+    currentNumber = numbersContainer.appendChild(divElement);
+    numberAlt.textContent = numbers[currentNumberIndex].alt.toUpperCase();
+    setTimeout(() => {
+        hackText(numbers[currentNumberIndex].alt.toUpperCase());
+    }, 0);
+    //numberAlt.getElementById('number-alt').textContent = numbers[currentNumberIndex].alt;
 }
 
-let elements = document.getElementsByClassName('number-container');
 
-for (let i = 0; i < elements.length; i++) {
-    elements[i].addEventListener('mousemove', borderEffect, false)
-    elements[i].addEventListener('mouseleave', borderEffectEnd, false);
+const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+let hackedTextInterval = null;
+
+function hackText(targetValue) {
+    let iteration = 0;
+    const words = targetValue.split(" ");
+    
+    clearInterval(hackedTextInterval);
+    
+    hackedTextInterval = setInterval(() => {
+        numberAlt.innerText = words
+        .map((word, wordIndex) => {
+            return word
+            .split("")
+            .map((letter, letterIndex) => {
+                if(letterIndex < iteration) {
+                    return letter;
+                }
+                return letters[Math.floor(Math.random() * 26)];
+            })
+            .join("");
+        })
+        .join(" ");
+        
+        if(iteration >= targetValue.length){ 
+            clearInterval(hackedTextInterval);
+        }
+        
+        iteration += 1 / 3;
+    }, 30);
+}
+
+
+
+appendNumber();
+currentNumber.style.transitionDuration = '.5s';
+
+
+arrowRight.addEventListener('click', () => {
+
+    if (isThrottled) {
+        return;
+    }
+
+    isThrottled = true;
+    oldNumber = currentNumber;
+    oldNumber.style.filter = 'blur(10px)';
+    oldNumber.style.opacity = '0';
+    oldNumber.style.transform = 'translateX(-100%)';
+    setTimeout(() => {
+        oldNumber.remove();
+        isThrottled = false;
+    }, 500);
+
+    if (currentNumberIndex >= numbers.length - 1) {
+        currentNumberIndex = 0;
+    } else {
+        currentNumberIndex++;
+    }
+
+    appendNumber();
+
+    currentNumber.style.filter = 'blur(10px)';
+    currentNumber.style.opacity = '0';
+    currentNumber.style.transform = 'translateX(100%)';
+    currentNumber.style.transitionDuration = '.5s';
+    setTimeout(() => {
+        currentNumber.style.filter = 'none';
+        currentNumber.style.opacity = '1';
+        currentNumber.style.transform = 'translateX(0%)';
+    }, 0);
+    
+    gearSpinAnimation();  
+});
+
+
+arrowLeft.addEventListener('click', () => {
+
+    if (isThrottled) {
+        return;
+    }
+
+    isThrottled = true;
+    oldNumber = currentNumber;
+    oldNumber.style.filter = 'blur(10px)';
+    oldNumber.style.opacity = '0';
+    oldNumber.style.transform = 'translateX(100%)';
+    setTimeout(() => {
+        oldNumber.remove();
+        isThrottled = false;
+    }, 500);
+
+
+    if (currentNumberIndex <= 0) {
+        currentNumberIndex = numbers.length - 1;
+    } else {
+        currentNumberIndex--;
+    }
+
+    appendNumber();
+    
+    currentNumber.style.filter = 'blur(10px)';
+    currentNumber.style.opacity = '0';
+    currentNumber.style.transform = 'translateX(-100%)';
+    currentNumber.style.transitionDuration = '.5s';
+    setTimeout(() => {
+        currentNumber.style.filter = 'none';
+        currentNumber.style.opacity = '1';
+        currentNumber.style.transform = 'translateX(0%)';
+    }, 0);
+
+    gearSpinAnimation();    
+});
+
+
+
+
+let rotationDegree = 0; // Adjust the rotation speed as desired
+let gearRotationSpeed = 0.1; // Adjust the rotation speed as desired
+
+// Function to rotate the gears
+function rotateGears() {
+    rotationDegree += gearRotationSpeed;
+    innerGear.style.transform = `rotate(${rotationDegree}deg)`;
+    outerGear.style.transform = `rotate(${rotationDegree * -1}deg)`;
+}
+
+// Call the rotateGears function periodically to continuously rotate the gears
+setInterval(rotateGears, 10); // Adjust the interval as desired
+
+let gearRotationInterval;
+
+function gearSpinAnimation() {
+    if (gearRotationInterval) {
+        return;
+    }
+
+    let increment = 0.05;
+    let targetSpeed = -2;
+    gearRotationInterval = setInterval(() => {
+        if (gearRotationSpeed > targetSpeed) {
+            gearRotationSpeed -= increment;
+        } else {
+            clearInterval(gearRotationInterval);
+
+            targetSpeed = 0.1;
+            gearRotationInterval = setInterval(() => {
+                if (gearRotationSpeed < targetSpeed) {
+                    gearRotationSpeed += increment;
+                } else {
+                    clearInterval(gearRotationInterval);
+                    gearRotationInterval = null;
+                }
+            }, 10);
+        }
+    }, 10);
 }

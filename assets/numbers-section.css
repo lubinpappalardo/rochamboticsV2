@@ -1,7 +1,7 @@
 #numbers-section {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
 }
 
@@ -10,142 +10,88 @@
 --- --- --- --- --- --- --- --- */
 
 #numbers-section .content-container {
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    padding-top: var(--navbarHeight);
-
-    @media only screen and (max-width: 767px) {
-        height: auto;
-        flex-direction: column;
-        align-items: stretch;
-        justify-content: flex-start;
-        padding-bottom: 10vh;
-        gap: 60px;
-    }
-}
-
-/* --- --- --- --- --- --- --- ---
-        Text container
-    (navigation + title)
---- --- --- --- --- --- --- --- */
-
-#numbers-section .content-container .text-content {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-
-    width: 50%;
-    height: 100%;
-    min-width: 300px;
-    max-width: 100%;
-    padding-left: calc(10vw + 40px);
-    padding-right: 40px;
-    padding-top: 10vh;
-
-    @media only screen and (max-width: 767px) {
-        width: 100%;
-        padding-left: 10vw;
-        padding-top: 0;
-    }
-
-    & span {
-        color: hsl(var(--textHSL) / 0.3);
-        -webkit-background-clip: text;
-        background-clip: text;
-        background-repeat: no-repeat;
-        background-size: 0% 100%;
-        background-image: linear-gradient(90deg, var(--text), var(--text));
-    }
-
-    & .scroll-reveal-numbers-section-title {
-        font-size: 42px;
-        font-weight: 900;
-        margin-bottom: 20px;
-        margin-top: 10px;
-
-
-        @media only screen and (max-width: 767px) {
-            font-size: 28px;
-            margin-bottom: 10px;
-        }
-    }
-}
-
-/* --- --- --- --- --- --- --- ---
-        Numbers container
---- --- --- --- --- --- --- --- */
-
-#numbers-section .content-container .numbers-container {
     position: relative;
+    width: 100%;
     display: flex;
-    /* flex-direction: column; */
-    flex-wrap: wrap;
-    align-items: center;
     justify-content: center;
-    gap: 20px;
+    align-items: center;
+    gap: 40px;
 
-    width: 50vw;
-    height: 100%;
-
-    @media only screen and (max-width: 767px) {
-        width: 100%;
-    }
-
-    & .number-container {
+    & .gear-container {
         position: relative;
-        z-index: 0;
+        width: 40%;
         display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
-        --height: 150px;
-        height: var(--height);
-        width: calc(var(--height) * var(--goldenRatio));
-        padding: 20px 10px;
-        background: var(--background);
-        border-radius: 10px;
-        box-shadow: 10px 10px 20px 0px hsl(0 0% 0% / 0.2);
-        overflow: hidden;
 
-        --gradientX: 50%;
-        --gradientY: 50%;
+        .numbers-container {
+            position: absolute;;
+            width: 31%;
+            aspect-ratio: 1/1;
+            border-radius: 50%;
 
-        &::before {
-            content: "";
-            position: absolute;
-            z-index: -1;
-            border-radius: calc(10px - 1px);
-            inset: 1px;
-            background-color: var(--lightBackground);
-        }
+            display: flex;
+            align-items: center;
+            overflow: hidden;
 
-        &::after {
-            content: "";
-            position: absolute;
-            z-index: -2;
-            width: 150px;
-            height: 150px;
-            top: var(--gradientY);
-            left: var(--gradientX);
-            transform: translate(-50%, -50%);
-            background-image: radial-gradient(circle, var(--greyish) 0%, hsl(var(--background) / 0) 100%);
-        }
-
-        & .number {
-            color: var(--orange);
-            font-size: 32px;
-            margin: 10px;
-        }
-
-        & .number-alt {
-            color: var(--greyish);
-            font-size: 12px;
-            text-align: center;
+            .number {
+                position: absolute;
+                width: 100%;
+                text-align: center;
+                color: var(--orange);
+                font-size: 64px;
+                font-family: "good-times", sans-serif;
+                font-weight: 900;
+                font-style: normal;
+                transition-property: transform, filter, opacity;
+                transition-duration: 0s;
+                transition-timing-function: ease-in-out;
+                text-shadow: 0 0 40px var(--orange), 0 0 10px var(--orange);    
+            }
         }
     }
+}
+
+#outer-gear {
+    position: absolute;
+    width: 100%;
+    animation: spin 30s linear infinite;
+}
+
+#inner-gear {
+    position: absolute;
+    width: 40%;
+    animation: spin 30s linear infinite reverse;
+}
+
+#number-left-arrow, #number-right-arrow {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-size: 64px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+
+    &:hover {
+        transform: scale(1.1);
+        color: var(--greyish);
+    }
+}
+
+#number-alt {
+    position: absolute;
+    padding: 18px 32px;
+    transform: translateY(150%);
+    background: linear-gradient(0deg, var(--lightBackground) 0%, hsl(var(--background)) 100%);
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--grey);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 14px;
+    transition: color 0.5s ease-in-out;
 }
 
 
@@ -155,8 +101,6 @@
 --- --- --- --- --- --- --- --- */
 
 #numbers-section .navigation {
-    position: relative;
-    top: auto;
-    left: auto;
+    top: 20vh;
     bottom: auto;
 }
