@@ -1,10 +1,11 @@
 :root {
     --background: 0 0% 10%;
     --lightBackground: #282828;
+    --gearColor: #404040;
     --text: hsl(0, 0%, 93%);
     --textHSL: 0 0% 93%;
     --greyish:  #c3c3c3;
-    --grey: #545454;
+    --grey: hsl(0, 0%, 33%);
     --darkBlue: #033B55;
     --orange: #E19938;
 

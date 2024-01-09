@@ -67,13 +67,16 @@
 #outer-gear {
     position: absolute;
     width: 100%;
-    animation: spin 30s linear infinite;
 }
 
 #inner-gear {
     position: absolute;
     width: 40%;
-    animation: spin 30s linear infinite reverse;
+}
+
+#giga-gear {
+    position: absolute;
+    width: 220%;
 }
 
 #number-left-arrow, #number-right-arrow {
@@ -84,17 +87,18 @@
     font-size: calc(32px + 3vw);
     cursor: pointer;
     transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+    color: hsl(var(--textHSL) / 0.8);
 
     @media only screen and (min-width: 768px) {
         &:hover {
             transform: scale(1.1);
-            color: var(--greyish);
+            color: hsl(var(--textHSL) / 0.6);
         }
     }
     @media only screen and (max-width: 767px) {
         &:active {
             transform: scale(1.1);
-            color: var(--greyish);
+            color: hsl(var(--textHSL) / 0.6);;
         }
     }
 }
