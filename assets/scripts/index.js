@@ -150,23 +150,23 @@ let currentNumberIndex = 0;
 const numbers = [
     {
         number: '8',
-        alt: 'members in our team'
+        alt: 'members'
     },
     {
         number: '7',
-        alt: 'nationalities in our team'
+        alt: 'nationalities'
     },
     {
         number: '2',
-        alt: 'seasons we participated in'
+        alt: 'participated seasons'
     },
     {
-        number: '1+',
-        alt: 'years, age of the club'
+        number: '2+',
+        alt: 'years of experience'
     },
     {
         number: '2',
-        alt: 'competitions we participated in'
+        alt: 'participated competitions'
     },
     {
         number: '1',

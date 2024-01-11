@@ -11,10 +11,17 @@
 
     --goldenRatio: 1.618;
 
+    --driver: hsl(0, 74%, 55%);
+    --builder: hsl(29, 74%, 55%);
+    --engineer: hsl(61, 74%, 55%);
+    --coder: hsl(105, 80%, 33%);
+    --social: hsl(172, 72%, 29%);
+
     --navbarHeight: 80px;
     @media only screen and (max-width: 767px) {
         --navbarHeight: 60px;
     }
+
 
     /* --lightbg: rgba(46 45 45 / 0.3);
     --lightbg2: rgb(46 45 45);
