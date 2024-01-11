@@ -1,0 +1,64 @@
+@import 'root.css';
+@import 'navbar.css';
+
+
+* {
+  box-sizing: border-box;
+  color: var(--text);
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  background: hsl(var(--background));
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  background: hsl(var(--background));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+@media (max-width: 767px) {
+  body {
+    max-width: 100%;
+  }
+}
+
+h1, h2, h3, h4, h1 *, h2 *, h3 *, h4 * {
+  font-family: "good-times", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    
+    & h4 {
+        color: var(--greyish);
+        text-align: center;
+        padding: 10px;
+    }
+
+    & .icon {
+        color: var(--grey);
+        font-size: 128px;
+    }
+}

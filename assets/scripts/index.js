@@ -1,35 +1,10 @@
 const logoElement = document.querySelector('#logo');
-const mobileNavigationPanel = document.querySelector('#mobile-navigation-panel');
-const mobileNavigationButton = document.querySelector('#mobile-navigation-btn');
-const mobileNavigationButtonClose = document.querySelector('#mobile-navigation-btn-close');
 const aboutSection = document.querySelector('#about-section');
 const navbar = document.querySelector('#navbar');
-
-// logoElement.addEventListener('mouseover', () => {
-//     if (logoElement.classList.contains('hovered')) {
-//         return;
-//     }
-//     logoElement.classList.add('hovered');
-
-//     setTimeout(() => {
-//         logoElement.classList.remove('hovered');
-//     }, 1000);
-// });
-
-
-mobileNavigationButton.addEventListener('click', () => {
-    mobileNavigationPanel.classList.add('active');
-});
-
-mobileNavigationButtonClose.addEventListener('click', () => {
-    mobileNavigationPanel.classList.remove('active');
-});
-
 
 function isMobile() {
     return (window.innerWidth < 768) ? true : false;
 }
-
 
 // Linear interpolation. It's used to map a value from one range to another.
 function mapRange(value, inputMin, inputMax) {
@@ -150,10 +125,14 @@ function scrollReveal() {
         });
     }
 
-    // Numbers section title 
-    // tunedValue = mapRange(scrollPosition, 1.4, 2);
-    // elem = document.querySelector('.scroll-reveal-numbers-section-title span');
-    // elem.style.backgroundSize = tunedValue * 100 + '% 100%';
+    // Numbers section gears
+    tunedValue = mapRange(scrollPosition, 1.3, 1.9);
+    elem = document.querySelector('#inner-gear');
+    elem.style.scale = tunedValue;
+
+    tunedValue = mapRange(scrollPosition, 1.1, 1.9);
+    elem = document.querySelector('#outer-gear');
+    elem.style.scale = tunedValue;
 
 }
 
