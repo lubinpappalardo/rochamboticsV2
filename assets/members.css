@@ -392,6 +392,7 @@ section {
         -moz-user-select: none;
         -ms-user-select: none;
         user-select: none;
+        transition: border .5s ease-in-out;
     }
 
     #play-pause::before {
@@ -401,7 +402,9 @@ section {
         right: 120%;
         width: 200%;
         height: 1px;
-        background-image: linear-gradient(to right, transparent 0%, var(--grey) 100%);
+        background-image: linear-gradient(to right, transparent 0%, var(--greyish) 100%);
+        opacity: 0.3;
+        transition: width .5s ease-in-out, opacity .5s ease-in-out;
     }
 
     #play-pause::after {
@@ -411,7 +414,9 @@ section {
         left: 120%;
         width: 200%;
         height: 1px;
-        background-image: linear-gradient(to right, var(--grey) 0%, transparent 100%);
+        background-image: linear-gradient(to right, var(--greyish) 0%, transparent 100%);
+        opacity: 0.3;
+        transition: width .5s ease-in-out, opacity .5s ease-in-out;
     }
 
 
@@ -422,6 +427,27 @@ section {
             'wght' 400,
             'GRAD' 0,
             'opsz' 24;
+        transition: color .5s ease-in-out;
+    }
+
+    #play-pause:hover {
+        border: 1px solid var(--greyish);
+
+        span {
+            color: var(--greyish);
+        }
+
+        &::before {
+            /* background-image: linear-gradient(to right, transparent 0%, var(--greyish) 100%); */
+            opacity: 1;
+            width: 400%;
+        }
+
+        &::after {
+            /* background-image: linear-gradient(to right, var(--greyish) 0%, transparent 100%); */
+            opacity: 1;
+            width: 400%;
+        }
     }
 
 }
