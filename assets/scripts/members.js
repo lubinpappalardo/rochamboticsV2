@@ -11,36 +11,20 @@ document.addEventListener('click', () => {
     });
 });
 
-const shift_strenght = 10;
 
-members.forEach(member => {
-    member.addEventListener("mousemove", function (event) {
-        var card = member;
-        var positionInfo = card.getBoundingClientRect();
 
-        var mouseX = event.clientX - positionInfo.left;
-        var mouseY = event.clientY - positionInfo.top;
+( function( $ ) {
 
-        var x_percent = (mouseX / positionInfo.width) * 100;
-        var y_percent = (mouseY / positionInfo.height) * 100;
+	"use strict";
 
-        card.style.setProperty("--reflectionX", x_percent + "%");
-        card.style.setProperty("--reflectionY", y_percent + "%");
+    $('.member-container').tilt({
+        maxTilt: 15,
+        perspective: 1400,
+        easing: "cubic-bezier(.03,.98,.52,.99)",
+        speed: 1200,
+        glare: true,
+        maxGlare: 0.2,
+        scale: 1.04
     });
-
-    member.addEventListener("mouseout", function (event) {
-        var card = member;
-        card.style.setProperty("--opacity", "0");
-    });
-
-    member.addEventListener("mousemove", function (event) {
-        var card = member;
-        card.style.setProperty("--opacity", "0.5");
-    });
-    //     var card = member;
-    //     card.style.transitionDuration = "1s";
-    //     card.style.setProperty("--transition", "1s");
-    //     card.style.setProperty("--shiftX", "0deg");
-    //     card.style.setProperty("--shiftY", "0deg");
-    // });
-});
+  
+}( jQuery ) );
