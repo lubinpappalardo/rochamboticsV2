@@ -19,7 +19,7 @@ document.getElementById('play-pause').addEventListener('click', () => {
 	"use strict";
 
     $('.member-container').tilt({
-        maxTilt: 10,
+        maxTilt: 5,
         perspective: 1400,
         easing: "cubic-bezier(.03,.98,.52,.99)",
         speed: 1200,

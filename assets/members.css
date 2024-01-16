@@ -54,7 +54,7 @@ section {
 .member {
     position: absolute;
     transform-style: preserve-3d;
-    animation: member 32s linear infinite;
+    animation: member 48s linear infinite;
     position: absolute;
     --width: max(20vw, 250px);
     width: var(--width);
@@ -62,13 +62,13 @@ section {
 }
 
 .member:nth-child(1) { animation-delay: 0s; }
-.member:nth-child(2) { animation-delay: -4s; }
-.member:nth-child(3) { animation-delay: -8s; }
-.member:nth-child(4) { animation-delay: -12s; }
-.member:nth-child(5) { animation-delay: -16s; }
-.member:nth-child(6) { animation-delay: -20s; }
-.member:nth-child(7) { animation-delay: -24s; }
-.member:nth-child(8) { animation-delay: -28s; }
+.member:nth-child(2) { animation-delay: -6s; }
+.member:nth-child(3) { animation-delay: -12s; }
+.member:nth-child(4) { animation-delay: -18s; }
+.member:nth-child(5) { animation-delay: -24s; }
+.member:nth-child(6) { animation-delay: -30s; }
+.member:nth-child(7) { animation-delay: -36s; }
+.member:nth-child(8) { animation-delay: -42s; }
 
 @keyframes member {
     0% {
